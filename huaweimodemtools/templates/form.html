@@ -1,0 +1,24 @@
+<head>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+</head>
+
+<body onload="getRandomInt();">
+
+	<h2 id="result"></h2>
+
+	<script>
+		function getRandomInt(max) {
+			setTimeout(function () {
+				var randomnumber = Math.floor(Math.random() * max);
+				$('#result').html(randomnumber);
+				getRandomInt(1000);
+
+			}, 150)
+			return false;
+		}
+	</script>
+
+
+</body>
