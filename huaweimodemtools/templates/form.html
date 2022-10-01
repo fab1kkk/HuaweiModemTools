@@ -4,19 +4,28 @@
 
 </head>
 
-<body onload="getRandomInt();">
+<body onload="getSignalInfo();">
 
-	<h2 id="result"></h2>
+	<h2 id="sinr"></h2>
+	<h2 id="rsrq"></h2>
+	<h2 id="rsrp"></h2>
+	<h2 id="rssi"></h2>
+	<h2 id="cell_id"></h2>
 
 	<script>
-		function getRandomInt() {
+		function getSignalInfo() {
 			setTimeout(function () {
 
-			  $.get("url", function(data, status){
-    				$('#result').html(data);
+			  $.get("signal-info", function(data, status){
+
+    				$('#sinr').html("sinr: " + data.sinr);
+    				$('#rsrq').html("rsrq: " + data.rsrq);
+    				$('#rsrp').html("rsrp: " + data.rsrp);
+    				$('#rssi').html("rssi: " + data.rssi);
+    				$('#cell_id').html("cell_id: " + data.cell_id);
   				});
 
-				getRandomInt();
+				getSignalInfo();
 			}, 1500)
 			return false;
 		}
